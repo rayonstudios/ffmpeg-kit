@@ -52,5 +52,6 @@ dependencies {
     // api 'com.arthenica:ffmpeg-kit-https:6.0-2'
     // api project(':ffmpeg-kit-https')
     // implementation(files("libs/ffmpeg-kit-https-6.0-2.aar"))
-    implementation(project(':ffmpeg-kit-https'))
+    // implementation(project(':ffmpeg-kit-https'))
+    api(project(':ffmpeg-kit-https'))
 }
