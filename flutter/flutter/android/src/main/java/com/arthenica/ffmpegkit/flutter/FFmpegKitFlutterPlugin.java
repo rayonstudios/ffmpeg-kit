@@ -656,6 +656,7 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
 
         this.context = context;
         this.activity = activity;
+        this.activityPluginBinding = activityBinding;
 
         // V2 embedding setup for activity listeners.
         activityBinding.addActivityResultListener(this);
