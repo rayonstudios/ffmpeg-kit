@@ -308,29 +308,20 @@ class FFmpegKitInitializer {
   Future<void> _initialize() async {
     print("Loading ffmpeg-kit-flutter.");
 
-    try {
-      _eventChannel
-          .receiveBroadcastStream()
-          .listen(_onEvent, onError: _onError);
+    _eventChannel.receiveBroadcastStream().listen(_onEvent, onError: _onError);
 
-      final platform = await FFmpegKitConfig.getPlatform();
-      final arch = await ArchDetect.getArch();
-      final packageName = await Packages.getPackageName();
-
-      await FFmpegKitConfig.enableRedirection();
-
-      final logLevel = await _getLogLevel();
-      if (logLevel != null) {
-        FFmpegKitConfig.setLogLevel(logLevel);
-      }
-
-      final version = FFmpegKitFactory.getVersion();
-      final isLTSPostfix = (await FFmpegKitConfig.isLTSBuild()) ? "-lts" : "";
-
-      final fullVersion = "$platform-$packageName-$arch-$version$isLTSPostfix";
-      print("Loaded ffmpeg-kit-flutter-$fullVersion.");
-    } catch (e) {
-      print("Error initializing ffmpeg-kit-flutter: $e");
+    final logLevel = await _getLogLevel();
+    if (logLevel != null) {
+      FFmpegKitConfig.setLogLevel(logLevel);
     }
+    final version = FFmpegKitFactory.getVersion();
+    final platform = await FFmpegKitConfig.getPlatform();
+    final arch = await ArchDetect.getArch();
+    final packageName = await Packages.getPackageName();
+    await FFmpegKitConfig.enableRedirection();
+    final isLTSPostfix = (await FFmpegKitConfig.isLTSBuild()) ? "-lts" : "";
+
+    final fullVersion = "$platform-$packageName-$arch-$version$isLTSPostfix";
+    print("Loaded ffmpeg-kit-flutter-$fullVersion.");
   }
 }
