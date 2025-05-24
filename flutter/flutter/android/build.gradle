@@ -49,13 +49,5 @@ android {
 
 dependencies {
     implementation 'androidx.annotation:annotation:1.5.0'
-    // api 'com.arthenica:ffmpeg-kit-https:6.0-2'
-    // api project(':ffmpeg-kit-https')
-    // implementation(files("libs/ffmpeg-kit-https-6.0-2.aar"))
-    // implementation(project(':ffmpeg-kit-https'))
-    // api(project(':ffmpeg-kit-https'))
-    // implementation project(':ffmpeg-kit-https')
-    // api project(':ffmpeg-kit-https')
-    // api(files("libs/ffmpeg-kit-https-6.0-2.aar"))
-    compileOnly files('libs/ffmpeg-kit-https-6.0-2.aar')
+    implementation 'com.arthenica:ffmpeg-kit-https:6.0-2'
 }
